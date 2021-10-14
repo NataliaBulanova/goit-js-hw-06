@@ -13,7 +13,7 @@ const refs = {
 let amount = 0;
 refs.btnCreator.addEventListener('click', createBoxes);
 function createBoxes() {
-  amount = parseInt(refs.input.value);
+  amount += parseInt(refs.input.value);
   refs.input.value = '';
   console.log(amount);
   const boxMarkup = [];
