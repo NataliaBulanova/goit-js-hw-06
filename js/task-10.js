@@ -10,8 +10,8 @@ const refs = {
   btnDestructor: document.querySelector('[data-destroy]'),
 };
 let amount = 0;
-refs.form.addEventListener('input', () => {
-  amount = refs.input.value;
+refs.input.addEventListener('input', e => {
+  amount = e.currentTarget.value;
   refs.btnCreator.addEventListener('click', createBoxes(amount));
   function createBoxes(nTimes) {
     const boxMarkup = [];
@@ -25,7 +25,9 @@ refs.form.addEventListener('input', () => {
     refs.container.append(...boxMarkup);
   }
 });
+
 refs.btnDestructor.addEventListener('click', destroyBoxes);
 function destroyBoxes() {
   refs.container.innerHTML = '';
+  refs.input.value = null;
 }
